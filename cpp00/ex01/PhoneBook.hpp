@@ -6,14 +6,15 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 19:40:22 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/02 17:46:29 by laoubaid         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:23:53 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef __PHONEBOOK_HPP__
+#define __PHONEBOOK_HPP__
 
 #include "Header.hpp"
+#include "Contact.hpp"
 
 bool isNumeric(std::string &str)
 {

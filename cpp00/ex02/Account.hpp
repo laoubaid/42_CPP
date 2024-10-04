@@ -12,12 +12,6 @@
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include <iostream>
-#include <ctime>
-
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
@@ -62,6 +56,8 @@ private:
 
 };
 
+
+
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
 // -*- indent-tabs-mode:t;                                                   -*-
@@ -69,6 +65,5 @@ private:
 // -*- fill-column: 75; comment-column: 75;                                  -*-
 // ************************************************************************** //
 
-typedef std::size_t size_t;
 
 #endif /* __ACCOUNT_H__ */

@@ -6,11 +6,14 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:35:20 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 05:24:24 by laoubaid         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:04:33 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+
+#include <iostream>
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
