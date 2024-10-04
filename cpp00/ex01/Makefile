@@ -6,12 +6,12 @@
 #    By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 04:36:40 by laoubaid          #+#    #+#              #
-#    Updated: 2024/10/04 17:10:24 by laoubaid         ###   ########.fr        #
+#    Updated: 2024/10/04 17:33:08 by laoubaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= PhoneBook.cpp Contact.cpp
-OBJS	= PhoneBook.o Contact.o
+SRC		= main.cpp PhoneBook.cpp Contact.cpp
+OBJS	= main.o PhoneBook.o Contact.o
 NAME	= PhoneBook
 CXX		= c++
 

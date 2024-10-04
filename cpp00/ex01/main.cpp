@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 19:40:22 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 17:31:58 by laoubaid         ###   ########.fr       */
+/*   Created: 2024/10/04 17:32:35 by laoubaid          #+#    #+#             */
+/*   Updated: 2024/10/04 17:32:54 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __PHONEBOOK_HPP__
-#define __PHONEBOOK_HPP__
+#include "Header.hpp"
+#include "PhoneBook.hpp"
 
-#include "Contact.hpp"
-
-class PhoneBook
+int main(void)
 {
-	private:
-		Contact	ctcts[8];
-		int		idx;
-		int		count;
-	public:
-		PhoneBook();
-		~PhoneBook();
+	PhoneBook	obj;
+	std::string	cmd;
 
-		int			getIdx(){return idx;};
-		void		addContact();
-		Contact&	getContact(int i);
-		Contact&	search();
-};
-
-#endif
+	while (std::cout << ">> " && std::getline(std::cin, cmd).good())
+	{
+		if (cmd == "ADD")
+			obj.addContact();
+		else if (cmd == "SEARCH")
+			obj.search();
+		else if (cmd == "EXIT")
+		{
+			std::cout << "exiting ..." << std::endl;
+			return 1;
+		}
+	}
+}
