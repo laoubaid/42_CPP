@@ -6,7 +6,7 @@
 #    By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/30 04:36:40 by laoubaid          #+#    #+#              #
-#    Updated: 2024/10/04 17:33:08 by laoubaid         ###   ########.fr        #
+#    Updated: 2024/10/07 01:54:07 by laoubaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,15 @@ SRC		= main.cpp PhoneBook.cpp Contact.cpp
 OBJS	= main.o PhoneBook.o Contact.o
 NAME	= PhoneBook
 CXX		= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) -Wall -Wextra -Werror -std=c++98 $^ -o $(NAME)
+	$(CXX) $(FLAGS) $^ -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) -Wall -Wextra -Werror -std=c++98 -c $< -o $@
+	$(CXX) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS)

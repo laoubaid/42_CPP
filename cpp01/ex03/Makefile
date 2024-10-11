@@ -6,14 +6,14 @@
 #    By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 16:33:48 by laoubaid          #+#    #+#              #
-#    Updated: 2024/10/07 01:54:47 by laoubaid         ###   ########.fr        #
+#    Updated: 2024/10/07 01:52:41 by laoubaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= Account.cpp tests.cpp
-OBJS	= Account.o tests.o
-NAME	= bank
-CXX		= c++
+SRC		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+OBJS	= $(SRC:.cpp=.o)
+NAME	= fight
+CXX		= clang++ # change it(c++)!
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
