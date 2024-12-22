@@ -5,30 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 19:40:22 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 17:31:58 by laoubaid         ###   ########.fr       */
+/*   Created: 2024/12/19 14:51:42 by laoubaid          #+#    #+#             */
+/*   Updated: 2024/12/22 22:45:34 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __PHONEBOOK_HPP__
-#define __PHONEBOOK_HPP__
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
+#include <cstdlib>
 #include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact	ctcts[8];
-		int		idx;
-		int		count;
+		int index;
+		int count;
+		Contact contacts[8];
 	public:
 		PhoneBook();
 		~PhoneBook();
 
-		int			getIdx(){return idx;};
+		int			getIdx();
 		void		addContact();
 		Contact&	getContact(int i);
-		Contact&	search();
+		void	search();
 };
 
 #endif

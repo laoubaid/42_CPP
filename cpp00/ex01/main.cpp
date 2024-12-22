@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 17:32:35 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 17:32:54 by laoubaid         ###   ########.fr       */
+/*   Created: 2024/12/19 14:51:33 by laoubaid          #+#    #+#             */
+/*   Updated: 2024/12/22 22:44:45 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header.hpp"
 #include "PhoneBook.hpp"
 
 int main(void)
@@ -18,9 +17,12 @@ int main(void)
 	PhoneBook	obj;
 	std::string	cmd;
 
-	while (std::cout << ">> " && std::getline(std::cin, cmd).good())
+	while (true)
 	{
-		if (cmd == "ADD")
+		std::cout << ">> ";
+		if (!std::getline(std::cin, cmd).good() || !isPrintable(cmd))
+			return (std::cout << "\nError: exiting ..." << std::endl, 1);
+		else if (cmd == "ADD")
 			obj.addContact();
 		else if (cmd == "SEARCH")
 			obj.search();
@@ -29,5 +31,7 @@ int main(void)
 			std::cout << "exiting ..." << std::endl;
 			return 1;
 		}
+		else
+			std::cout << cmd << " : invalid command use ADD, SEARCH or EXIT" << std::endl;
 	}
 }

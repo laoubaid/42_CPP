@@ -1,35 +1,28 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/30 04:30:52 by laoubaid          #+#    #+#              #
-#    Updated: 2024/10/07 01:53:42 by laoubaid         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-SRC		= megaphone.cpp
-OBJS	= megaphone.o
-NAME	= megaphone
-CXX		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME = megaphone
+
+CC = clang++
+
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRC = megaphone.cpp
+
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(FLAGS) $^ -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf megaphone
+	rm -f $(NAME)
 
 re: fclean all
 
-.SECONDARY: $(OBJS)
+.PHONY: all clean fclean re

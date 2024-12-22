@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 16:35:20 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 17:04:33 by laoubaid         ###   ########.fr       */
+/*   Created: 2024/12/20 16:58:43 by laoubaid          #+#    #+#             */
+/*   Updated: 2024/12/22 21:16:19 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,8 @@ int		Account::checkAmount() const
 void	Account::_displayTimestamp()
 {
 	std::time_t	timeSec = std::time(0);
-	std::tm		*timeUtc = std::gmtime(&timeSec);
+	std::tm		*utc = std::gmtime(&timeSec);
 
-	std::cout << "[" << (timeUtc->tm_year + 1900) << (timeUtc->tm_mon + 1);
-	std::cout << timeUtc->tm_mday << "_" << timeUtc->tm_hour << timeUtc->tm_min;
-	std::cout << timeUtc->tm_sec << "]" << " ";
+	std::cout << "[" << utc->tm_year + 1900 << utc->tm_mon + 1 << utc->tm_mday;
+	std::cout << "_" << utc->tm_hour << utc->tm_min << utc->tm_sec << "] ";
 }

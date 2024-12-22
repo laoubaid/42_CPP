@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/04 17:08:56 by laoubaid          #+#    #+#             */
-/*   Updated: 2024/10/04 17:24:05 by laoubaid         ###   ########.fr       */
+/*   Created: 2024/12/19 14:51:55 by laoubaid          #+#    #+#             */
+/*   Updated: 2024/12/22 22:46:47 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Header.hpp"
+
 #include "Contact.hpp"
 
 Contact::Contact()
 {
-	first_name = "undefined!";
-	last_name = "undefined!";
-	nickname = "undefined!";
-	dsecret = "undefined!";
-	phone_number = "undefined!";
+	first_name = "empty";
+	last_name = "empty";
+	nickname = "empty";
+	darkest_secret = "empty";
+	phone_number = "empty";
 }
 
 Contact::~Contact()
@@ -28,11 +28,21 @@ Contact::~Contact()
 
 void	Contact::getInfo()
 {
-	std::cout << "first name:\t" << this->first_name << std::endl;
-	std::cout << "last name:\t" << this->last_name << std::endl;
-	std::cout << "nickname:\t" << this->nickname << std::endl;
-	std::cout << "darkest secret:\t" << this->dsecret << std::endl;
-	std::cout << "phone number:\t" << this->phone_number << std::endl;
+	std::cout << "\tfirst name    \t:\t" << this->first_name << std::endl;
+	std::cout << "\tlast name     \t:\t" << this->last_name << std::endl;
+	std::cout << "\tnickname      \t:\t" << this->nickname << std::endl;
+	std::cout << "\tdarkest secret\t:\t" << this->darkest_secret << std::endl;
+	std::cout << "\tphone number  \t:\t" << this->phone_number << std::endl;
+}
+
+bool isPrintable(std::string &str)
+{
+	for (std::size_t i = 0; i < str.length(); i++)
+	{
+		if (!std::isprint(str.at(i)))
+			return false;
+	}
+	return true;
 }
 
 int	Contact::setInfo()
@@ -41,38 +51,40 @@ int	Contact::setInfo()
 	tmp.first_name = first_name;
 	tmp.last_name = last_name;
 	tmp.nickname = nickname;
-	tmp.dsecret = dsecret;
+	tmp.darkest_secret = darkest_secret;
 	tmp.phone_number = phone_number;
+    std::cout << std::endl << "---> Enter the following information : " << std::endl << std::endl;
 	do
 	{
-		std::cout << "Insert first name: ";
-		if (!std::getline(std::cin, first_name).good())
+		std::cout << "\tfirst name\t:\t";
+		if (!std::getline(std::cin, first_name).good() || !isPrintable(first_name))
 			return (this->setBack(tmp));
 	} while (!first_name.length());
 	do
 	{
-		std::cout << "Insert last name: ";
-		if (!std::getline(std::cin, last_name).good())
+		std::cout << "\tlast name\t:\t";
+		if (!std::getline(std::cin, last_name).good() || !isPrintable(last_name))
 			return (this->setBack(tmp));
 	} while (!last_name.length());
 	do
 	{
-		std::cout << "Insert nickname: ";
-		if (!std::getline(std::cin, nickname).good())
+		std::cout << "\tnickname \t:\t";
+		if (!std::getline(std::cin, nickname).good() || !isPrintable(nickname))
 			return (this->setBack(tmp));
 	} while (!nickname.length());
 	do
 	{
-		std::cout << "Insert the darkest secret: ";
-		if (!std::getline(std::cin, dsecret).good())
+		std::cout << "\tdarkest secret\t:\t";
+		if (!std::getline(std::cin, darkest_secret).good() || !isPrintable(darkest_secret))
 			return (this->setBack(tmp));
-	} while (!dsecret.length());
+	} while (!darkest_secret.length());
 	do
 	{
-		std::cout << "Insert phone number: ";
-		if (!std::getline(std::cin, phone_number).good())
+		std::cout << "\tphone number\t:\t";
+		if (!std::getline(std::cin, phone_number).good() || !isPrintable(phone_number))
 			return (this->setBack(tmp));
 	} while (!phone_number.length());
+    std::cout << std::endl;
 	return 0;
 }
 
@@ -81,7 +93,7 @@ int	Contact::setBack(const Contact& tmp)
 	first_name = tmp.first_name;
 	last_name = tmp.last_name;
 	nickname = tmp.nickname;
-	dsecret = tmp.dsecret;
+	darkest_secret = tmp.darkest_secret;
 	phone_number = tmp.phone_number;
 	return 1;
 }

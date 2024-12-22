@@ -1,35 +1,28 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/02 16:33:48 by laoubaid          #+#    #+#              #
-#    Updated: 2024/10/07 01:54:47 by laoubaid         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-SRC		= Account.cpp tests.cpp
-OBJS	= Account.o tests.o
-NAME	= bank
-CXX		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME = recover
+
+CC = clang++
+
+FLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRC = Account.cpp tests.cpp
+
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(FLAGS) $^ -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $^ -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.SECONDARY: $(OBJS)
+.PHONY: all clean fclean re
