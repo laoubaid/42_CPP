@@ -1,5 +1,5 @@
 
-NAME = converter
+NAME = Converter
 
 CC = clang++
 
