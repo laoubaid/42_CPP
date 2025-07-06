@@ -1,11 +1,11 @@
 
-NAME = Converter
+NAME = Serializer
 
-CC = clang++
+CC = clang++        # change me to c++ before disaster strikes
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Serializer.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

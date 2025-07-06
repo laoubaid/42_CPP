@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/02 12:11:18 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/02 16:38:27 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int ac, char **av)
+# include <time.h>
+# include <iostream>
+# include <sys/time.h>
+# include <typeinfo>
+
+
+class Base
 {
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
-}
+    public:
+        virtual ~Base();
+};
 
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif

@@ -1,12 +1,11 @@
 
-NAME = Converter
+NAME = EasyFind
 
-CC = clang++
+CC = clang++   # change_me
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp ScalarConverter.cpp
-
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

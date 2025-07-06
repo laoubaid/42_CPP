@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/02 12:16:00 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/02 12:19:55 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef A_HPP
+# define A_HPP
 
-int main(int ac, char **av)
-{
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
-}
+#include "Base.hpp"
 
+class A : public Base {};
 
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif

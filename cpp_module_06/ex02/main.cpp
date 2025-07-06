@@ -5,23 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/02 16:34:48 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/02 16:46:47 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
+    Base *base = generate();
+
+    Base test;
+
+
+    identify(base);
+    identify(*base);
+
+    identify(&test);
+    identify(test);
+
     return 0;
 }
-
-
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-

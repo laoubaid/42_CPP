@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/01 21:42:06 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/01 21:50:43 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef _DATA_HPP_
+# define _DATA_HPP_
 
-int main(int ac, char **av)
+# include <string>
+
+typedef struct s_Data
 {
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
-}
+    int         value;
+    std::string name;
+}   Data;
 
-
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif

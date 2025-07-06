@@ -142,7 +142,7 @@ void    ScalarConverter::Display(bool flag) {
     if ((char_val_ >= 0 && char_val_ < 32) || char_val_ == 127)
         std::cout << "char: Non displayable\n";
     else if (char_val_ > 31)
-        std::cout << "char: " << char_val_ << std::endl;
+        std::cout << "char: '" << char_val_ << "'" << std::endl;
     else
         std::cout << "char: impossible\n";
 
@@ -165,8 +165,6 @@ void    ScalarConverter::Display(bool flag) {
 void    ScalarConverter::convert(std::string c_literal) {
     arg_ = c_literal;
     if (isChar()) {
-        std::cout << "\033[33m\t\t\t\t\tits a character!\033[0m\n" << std::endl;
-
         int_val_ = static_cast<int>(char_val_);
         float_val_ = static_cast<float>(char_val_);
         double_val_ = static_cast<double>(char_val_);
@@ -174,7 +172,6 @@ void    ScalarConverter::convert(std::string c_literal) {
         Display(false);
     }
     else if (isInt()) {
-        std::cout << "\033[33m\t\t\t\t\tits an Int!\033[0m\n" << std::endl;
         if (int_val_ <= -1 || int_val_ >= 128)
             char_val_ = -128;
         else    
@@ -185,8 +182,6 @@ void    ScalarConverter::convert(std::string c_literal) {
         Display(false);
     }
     else if (isFloat()) {
-        std::cout << "\033[33m\t\t\t\t\tits a Float!\033[0m\n" << std::endl;
-
         if (float_val_ <= -1 || float_val_ >= 128)
             char_val_ = -128;
         else    
@@ -198,8 +193,6 @@ void    ScalarConverter::convert(std::string c_literal) {
             Display(true);
     }
     else if (isDouble()) {
-        std::cout << "\033[33m\t\t\t\t\tits a Double!\033[0m\n" << std::endl;
-
         if (double_val_ <= -1 || double_val_ >= 128)
             char_val_ = -128;
         else    

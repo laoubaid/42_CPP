@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/02 21:59:33 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/02 22:06:48 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int main(int ac, char **av)
-{
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
+template <typename T> void swap(T& a, T& b) {
+    T tmp;
+
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+template <typename T> T min(T a, T b) {
+    if (a < b)
+        return a;
+    return b;
+}
+
+template <typename T> T max(T a, T b) {
+    if (a > b)
+        return a;
+    return b;
 }
 
 
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif

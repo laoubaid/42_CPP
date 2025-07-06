@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/02 22:17:18 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/03 01:40:04 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template <typename P> void func(const P& a)
 {
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
+    std::cout << a << std::endl;
 }
 
+template <typename T> void iter(T* arr, size_t len, void (*fptr)(const T&))
+{
+    for (size_t i = 0; i < len; i++) {
+        fptr(arr[i]);
+    }
+}
 
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif

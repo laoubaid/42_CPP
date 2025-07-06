@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/04 01:08:34 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/04 02:04:34 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-int main(int ac, char **av)
-{
-    if (ac != 2) {
-        std::cout << "Usage: ./Converter <your C++ literal>" << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(av[1]);
-    return 0;
+# include <algorithm>
+# include <iostream>
+
+template <typename T>
+typename T::iterator easyfind(T& cont, int n) {
+    typename    T::iterator itr = std::find(cont.begin(), cont.end(), n);
+
+    if (itr == cont.end())
+        throw std::runtime_error("[!] value not found!");
+    return itr;
 }
 
-
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-
+#endif
