@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:18:31 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 16:59:49 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/06 10:44:32 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,3 @@ int main(int ac, char **av)
     ScalarConverter::convert(av[1]);
     return 0;
 }
-
-
-// Floating-point operations that exceed the maximum representable value (overflow) result in inf.
-

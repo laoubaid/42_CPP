@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 11:18:34 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/06/01 15:19:30 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:55:26 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ bool ScalarConverter::isChar() {
 
     if (arg_.empty())
         return false;
-
+    if (arg_.size() == 1) {
+        char_val_ = arg_[0];
+        return true;
+    }
     long val = std::strtol(arg_.c_str(), &end, 10);
     if (*end != '\0')
         return false;
@@ -174,7 +177,7 @@ void    ScalarConverter::convert(std::string c_literal) {
     else if (isInt()) {
         if (int_val_ <= -1 || int_val_ >= 128)
             char_val_ = -128;
-        else    
+        else
             char_val_ = static_cast<char>(int_val_);
         float_val_ = static_cast<float>(int_val_);
         double_val_ = static_cast<double>(int_val_);
@@ -184,7 +187,7 @@ void    ScalarConverter::convert(std::string c_literal) {
     else if (isFloat()) {
         if (float_val_ <= -1 || float_val_ >= 128)
             char_val_ = -128;
-        else    
+        else
             char_val_ = static_cast<char>(float_val_);
         int_val_ = static_cast<int>(float_val_);
         double_val_ = static_cast<double>(float_val_);
@@ -195,7 +198,7 @@ void    ScalarConverter::convert(std::string c_literal) {
     else if (isDouble()) {
         if (double_val_ <= -1 || double_val_ >= 128)
             char_val_ = -128;
-        else    
+        else
             char_val_ = static_cast<char>(double_val_);
         int_val_ = static_cast<int>(double_val_);
         float_val_ = static_cast<double>(double_val_);
