@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 16:34:48 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/06 12:33:52 by laoubaid         ###   ########.fr       */
+/*   Created: 2025/07/12 15:03:42 by laoubaid          #+#    #+#             */
+/*   Updated: 2025/07/12 17:20:33 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef BITCOIN_EXCHANGE_HPP
+# define BITCOIN_EXCHANGE_HPP
 
-int main(void)
-{
-    Base *base = generate();
+# include <iostream>
+# include <fstream>
+# include <string>
+# include <map>
+# include <cstdlib>
 
-    Base test;
+std::map<std::string, float>    *get_database(std::string filename);
+void                            bitcoin_exchange(std::map<std::string, float> *db, std::ifstream &input);
 
-
-    identify(base);
-    identify(*base);
-
-    identify(&test);
-    identify(test);
-
-    return 0;
-}
+#endif

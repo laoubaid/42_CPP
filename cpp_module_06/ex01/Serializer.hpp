@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 15:48:24 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/02 21:32:48 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/06 12:07:17 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,18 @@
 # include <stdint.h>
 
 class Serializer
-{        
-    public:
+{
+    private:
         Serializer();
         ~Serializer();
         Serializer(const Serializer& other);
         Serializer& operator=(const Serializer& other);
 
+    public:
+
         static uintptr_t   serialize(Data* ptr);
         static Data*       deserialize(uintptr_t raw);
 
-        // should a static class follow canonical form?
-        // or should it be a singleton?
-        // the answer is no, because it does not have a state
-        // so it does not need to follow the canonical form
-        // it is just a utility class to serialize and deserialize Data objects
 };
 
 #endif
