@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/13 14:22:48 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/25 22:41:39 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/26 17:23:30 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main(int ac, char **av) {
     
     std::vector<unsigned int> vec_data;
-    std::vector<unsigned int> deq_data;
+    std::deque<unsigned int> deq_data;
 
     for (int i = 1; i < ac; i++) {
         if (!isvalid(av[i])) {

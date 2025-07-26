@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 16:49:55 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/25 22:40:55 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/26 17:23:33 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 #include <string>
 #include <stdlib.h>
 #include <iostream>
-#include <vector>
 #include <algorithm>
 #include <cmath>
 #include <ctime>
+
+#include <vector>
+#include <deque>
 
 bool    isvalid(std::string str);
 int     check_if_sorted(std::vector<unsigned int> data, size_t dsize) ;

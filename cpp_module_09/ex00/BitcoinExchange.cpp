@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 17:19:44 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/12 17:24:52 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/26 16:42:16 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ bool is_valid_date(const std::string& date) {
         if (!isdigit(date[i]))
             return false;
     }
+    int year = std::atoi(date.c_str());
+    int month = std::atoi(date.c_str() + 5);
+    int day = std::atoi(date.c_str() + 8);
+    if (month < 1 || month > 12)
+        return false;
+    int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (year % 4 == 0)
+        days_in_month[1] = 29;
+    if (day < 1 || day > days_in_month[month - 1])
+        return false;
 
     return true;
 }
@@ -93,7 +103,8 @@ void bitcoin_exchange(std::map<std::string, float> *db, std::ifstream &input) {
             xchg_val = is_valid_value(value);
             if (xchg_val < 0.0f)
                 throw std::runtime_error("Error: bad input => " + line);
-            it = db->lower_bound(date);
+            it = db->upper_bound(date);
+            it--;
             if (it == db->end()) {
                 std::cerr << "[!] No later date found!" << std::endl;
                 continue ;
