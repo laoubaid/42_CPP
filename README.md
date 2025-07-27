@@ -20,7 +20,7 @@ This repository contains my solutions for the 42 School C++ modules from Module 
 Each module is in its own directory. Compile using `make` or manually with `g++`.
 
 ```bash
-cd cpp_module_XX
+cd cpp_module_XX/exXX
 make
 ./executable
 ```
