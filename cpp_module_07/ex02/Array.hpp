@@ -6,7 +6,7 @@
 /*   By: laoubaid <laoubaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 01:46:06 by laoubaid          #+#    #+#             */
-/*   Updated: 2025/07/03 02:29:33 by laoubaid         ###   ########.fr       */
+/*   Updated: 2025/07/07 10:35:19 by laoubaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 #include <cstdlib>
 #include <ctime>
 
-template <typename T> class Array
-{
+template <typename T>
+class Array {
 
-    public:
+    private:
         T       *ptr;
         size_t  len;
-
+    
+    public:
         Array() {
             ptr = NULL;
             len = 0;
@@ -59,6 +60,16 @@ template <typename T> class Array
             if (idx >= len)
                 throw std::out_of_range("Index is out of bounds");
             return ptr[idx];
+        }
+
+        const T&  operator[](const size_t idx) const {
+            if (idx >= len)
+                throw std::out_of_range("Index is out of bounds");
+            return ptr[idx];
+        }
+
+        size_t size() const {
+            return len;
         }
 
 };
